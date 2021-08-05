@@ -1,5 +1,9 @@
 import MyPage from './components/MyPage';
 import './App.css';
+import MyPageContext from './components/MyPageContext';
+import CrudApi from './components/CrudApi';
+import { CrudProvider } from './context/CrudContext';
+
 
 function App() {
   return (
@@ -9,6 +13,14 @@ function App() {
         target='_blank'
         rel='noreferrer'
       > Documentación</a>
+      <hr/>      
+      <CrudProvider>
+      <CrudApi/>
+      </CrudProvider>
+     
+      <hr/>
+      <MyPageContext/>
+      <hr/>
       <MyPage/>
     </div>
   );

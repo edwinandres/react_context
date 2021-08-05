@@ -1,20 +1,21 @@
 import React from 'react'
 
-const Header = ({ theme, handleTheme }) => {
+const Header = ({ theme, handleTheme, handleLanguage, texts, auth, handleAuth }) => {
     return (
         <div>
             <header className={theme}>
-                <h2>Mi aplicacion SIN Context API</h2>
-                <h3>Mi cabecera</h3>
-                <select name='language'>
+                <h2>{texts.headerTitle}</h2>
+                <h3>{texts.headerSubtitle}</h3>
+                <select name='language' onChange={handleLanguage}>
                     <option value="es">Español</option>
                     <option value="en">Ingles</option>
                 </select>
                 <input type="radio" name="theme" value="light" id='light' onClick={handleTheme} />
-                <label htmlFor="light">Claro</label>
+                <label htmlFor="light">{texts.headerLight}</label>
                 <input type="radio" name="theme" value="dark" id='dark' onClick={handleTheme} />
-                <label htmlFor="dark">Oscuro</label>
-                <button type="button">Iniciar Sesión</button>
+                <label htmlFor="dark">{texts.headerDark}</label>
+                
+                <button type="button" onClick={handleAuth}>{auth ? texts.buttonLogout :texts.buttonLogin}</button>
 
             </header>
         </div>
